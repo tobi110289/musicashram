@@ -15,11 +15,17 @@ const Cashout: NextPage = () => {
     <div className="flex flex-col mb-8 m-auto">
       <div className="flex self-center m-2">
         <GiShinyPurse className="text-7xl mr-2" />
-        <p className="m-auto text-xl">
-          Next distribution in <strong>{daysLeft}</strong> days.
-        </p>
+        {daysLeft ? (
+          <p className="m-auto text-xl">
+            Next distribution in <strong>{daysLeft}</strong> days.
+          </p>
+        ) : (
+          <p className="m-auto text-xl">No distribution planned</p>
+        )}
       </div>
-      <p className="italic m-auto">({formatedDistributionDate})</p>
+      {daysLeft ? (
+        <p className="italic m-auto">({formatedDistributionDate})</p>
+      ) : null}
     </div>
   );
 };
