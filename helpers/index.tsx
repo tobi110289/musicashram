@@ -22,7 +22,7 @@ function sortByFirstName(users: IUser[]) {
 
 function returnTotalTokens(users: IUser[]) {
   return users.length
-    ? users.map((user) => user.tokens).reduce((a, b) => a + b)
+    ? users.map((user) => user.tokens).reduce((a, b) => a && b && a + b)
     : 0;
 }
 

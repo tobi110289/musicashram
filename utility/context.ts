@@ -6,6 +6,8 @@ export type GlobalContent = {
   treasury: number;
   distributionDate: string;
   setTreasury: Dispatch<SetStateAction<number>>;
+  updateCurrentTreasury: (amount: number) => Promise<void>;
+  createUser: (user: IUser) => Promise<void>;
 };
 
 export const GlobalContext = createContext<GlobalContent>({
@@ -13,6 +15,8 @@ export const GlobalContext = createContext<GlobalContent>({
   treasury: 0,
   distributionDate: "",
   setTreasury: () => {},
+  updateCurrentTreasury: () => new Promise((resolve) => resolve()),
+  createUser: () => new Promise((resolve) => resolve()),
 });
 
 export const useGlobalContext = () => useContext(GlobalContext);

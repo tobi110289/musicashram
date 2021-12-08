@@ -5,4 +5,9 @@ function getAllUsers(): Promise<IUser[]> {
   return fetchRequest("/users");
 }
 
-export { getAllUsers };
+function createNewUser(user: IUser): Promise<IUser> {
+  console.log(user);
+  return fetchRequest("/user", options("POST", user));
+}
+
+export { getAllUsers, createNewUser };
