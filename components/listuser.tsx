@@ -13,7 +13,7 @@ const ListUser: NextPage<IListUser> = ({ user, share, even }) => {
       <th>{user.firstName}</th>
       <th>{user.lastName}</th>
       <th>{user.tokens}</th>
-      <th>{share} €</th>
+      <th>{user.tokens > 0 ? share : 0} €</th>
     </tr>
   );
 };

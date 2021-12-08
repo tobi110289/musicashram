@@ -23,7 +23,6 @@ const UserList: NextPage<IUserList> = ({ users, treasury }) => {
       <tbody>
         {users.length &&
           sortByFirstName(users).map((user, index) => {
-            console.log("index", index);
             const share = calculateShare(treasury, totalTokens, user.tokens);
             return (
               <ListUser
