@@ -1,14 +1,10 @@
 import type { NextPage } from "next";
-import { IUser } from "../interfaces/user";
 import ListUser from "./listuser";
 import { calculateShare, sortByFirstName, returnTotalTokens } from "../helpers";
+import { useGlobalContext } from "../utility/context";
 
-interface IUserList {
-  users: IUser[];
-  treasury: number;
-}
-
-const UserList: NextPage<IUserList> = ({ users, treasury }) => {
+const UserList: NextPage = () => {
+  const { users, treasury } = useGlobalContext();
   const totalTokens = returnTotalTokens(users);
   return (
     <table className="table-fixed">

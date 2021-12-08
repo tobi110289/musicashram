@@ -4,7 +4,7 @@ import Overview from "./overview";
 const Home: NextPage = () => {
   return (
     <div className="bg-orange h-screen w-screen">
-      <Overview />
+        <Overview />
     </div>
   );
 };
