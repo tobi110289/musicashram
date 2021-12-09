@@ -7,7 +7,6 @@ interface Ioptions {
 }
 
 export function fetchRequest(path: string, options?: Ioptions) {
-  console.log(BASE_URL);
   return fetch(BASE_URL + path, options)
     .then((res) => (res.status < 400 ? res : Promise.reject()))
     .then((res) => (res.status !== 204 ? res.json() : res))

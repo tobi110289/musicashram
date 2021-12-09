@@ -46,8 +46,12 @@ const AdminListUser: NextPage<IListUser> = ({
 
   return (
     <tr className={even ? "text-grey-800" : ""}>
-      <td className="text-center" {...nameProps("first")}>{user.firstName}</td>
-      <td className="text-center" {...nameProps("last")}>{user.lastName}</td>
+      <td className="text-center" {...nameProps("first")}>
+        {user.firstName}
+      </td>
+      <td className="text-center" {...nameProps("last")}>
+        {user.lastName}
+      </td>
       <td
         className="text-center"
         suppressContentEditableWarning={true}
@@ -66,7 +70,7 @@ const AdminListUser: NextPage<IListUser> = ({
       </td>
       {editable ? (
         <td className="text-center" onClick={() => deleteUser(user.id)}>
-          ❌
+          <button>❌</button>
         </td>
       ) : null}
     </tr>
