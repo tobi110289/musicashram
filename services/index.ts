@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_UR;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 interface Ioptions {
   method: string;
