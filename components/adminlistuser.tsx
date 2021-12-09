@@ -69,7 +69,17 @@ const AdminListUser: NextPage<IListUser> = ({
         {user.tokens && user.tokens > 0 ? share : 0} €
       </td>
       {editable ? (
-        <td className="text-center" onClick={() => deleteUser(user.id)}>
+        <td
+          className="text-center"
+          onClick={() => {
+            const result = confirm(
+              `Are you sure you want to delete ${user.firstName}?`
+            );
+            if (result) {
+              deleteUser(user.id);
+            }
+          }}
+        >
           <button>❌</button>
         </td>
       ) : null}

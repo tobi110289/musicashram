@@ -9,12 +9,31 @@ interface IUserList {
 }
 
 const UserList: NextPage<IUserList> = ({ admin }) => {
-  const { users, treasury } = useGlobalContext();
+  const { users, treasury, deleteAllTokens } = useGlobalContext();
   const [editable, setEditable] = useState(false);
   const totalTokens = returnTotalTokens(users);
   return (
     <div>
-      {admin ? <EditPencil setter={setEditable} val={editable} /> : null}
+      {admin ? (
+        <div className="flex flex-col">
+          <EditPencil setter={setEditable} val={editable} />
+          {editable && (
+            <button
+              onClick={() => {
+                const result = confirm(
+                  "Are you sure you want to reset all tokens?"
+                );
+                if (result) {
+                  deleteAllTokens();
+                }
+              }}
+              className="w-50 mx-auto my-2 rounded-md bg-black text-white-100 text-2xl"
+            >
+              ⚠️ Delete All Tokens ⚠️
+            </button>
+          )}
+        </div>
+      ) : null}
       <table className="table-fixed w-screen">
         <thead>
           <tr>

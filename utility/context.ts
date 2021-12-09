@@ -11,6 +11,7 @@ export type GlobalContent = {
   updateUser: (user: IUser) => Promise<void>;
   deleteUser: (id: number) => Promise<void>;
   setNewDistributionDate: (date: string) => Promise<void>;
+  deleteAllTokens: () => Promise<void>;
 };
 
 export const GlobalContext = createContext<GlobalContent>({
@@ -22,6 +23,7 @@ export const GlobalContext = createContext<GlobalContent>({
   createUser: () => new Promise((resolve) => resolve()),
   updateUser: () => new Promise((resolve) => resolve()),
   deleteUser: () => new Promise((resolve) => resolve()),
+  deleteAllTokens: () => new Promise((resolve) => resolve()),
   setNewDistributionDate: () => new Promise((resolve) => resolve()),
 });
 

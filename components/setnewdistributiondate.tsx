@@ -20,7 +20,12 @@ const SetNewDistributionDate: NextPage = () => {
         onChange={(e) => setDate(e.target.value)}
       />
       <button
-        onClick={handleClick}
+        onClick={() => {
+          const result = confirm("Are you sure you want to reset the treasury and set a new distribution date?");
+          if (result) {
+            handleClick();
+          }
+        }}
         className="w-20 mx-auto my-2 rounded-md bg-black text-white-100 text-2xl"
       >
         New Date

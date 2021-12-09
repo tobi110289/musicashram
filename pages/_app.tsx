@@ -9,6 +9,7 @@ import {
   createNewUser,
   updateOneUser,
   deleteOneUser,
+  deleteAllUserTokens,
 } from "../services/user.service";
 import {
   getAllTreasuries,
@@ -72,6 +73,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     setUsers(userArray);
   }
 
+  async function deleteAllTokens(): Promise<void> {
+    const newUsers = await deleteAllUserTokens();
+    newUsers && setUsers(newUsers);
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -84,6 +90,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         setNewDistributionDate,
         updateUser,
         deleteUser,
+        deleteAllTokens,
       }}
     >
       <Component {...pageProps} />
