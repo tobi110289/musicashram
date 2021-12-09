@@ -15,7 +15,7 @@ export function fetchRequest(path: string, options?: Ioptions) {
     });
 }
 
-export function options(method: string, body: any) {
+export function options(method: string, body?: any) {
   return {
     method: method,
     headers: {

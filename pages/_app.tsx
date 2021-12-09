@@ -3,10 +3,12 @@ import type { AppProps } from "next/app";
 import { GlobalContext } from "../utility/context";
 import { useEffect, useState } from "react";
 import { IUser, INewUser } from "../interfaces/user";
+import { ITreasury } from "../interfaces/treasury";
 import {
   getAllUsers,
   createNewUser,
   updateOneUser,
+  deleteOneUser,
 } from "../services/user.service";
 import {
   getAllTreasuries,
@@ -30,8 +32,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 
   async function getCurrentTreasury(): Promise<void> {
+    let currentTreasury;
     const treasuries = await getAllTreasuries();
-    const currentTreasury = treasuries.find((el) => el.current);
+    if (treasuries) currentTreasury = treasuries.find((el) => el.current);
     if (currentTreasury) {
       setTreasury(currentTreasury.amount);
       setDistributionDate(currentTreasury.distributionDate);
@@ -62,6 +65,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     newUser && setUsers([...userArray, newUser]);
   }
 
+  async function deleteUser(id: number): Promise<void> {
+    await deleteOneUser(id);
+    const userArray = users.filter((el) => el.id !== id);
+    setUsers(userArray);
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -73,6 +82,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         createUser,
         setNewDistributionDate,
         updateUser,
+        deleteUser,
       }}
     >
       <Component {...pageProps} />

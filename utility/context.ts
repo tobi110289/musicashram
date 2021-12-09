@@ -9,6 +9,7 @@ export type GlobalContent = {
   updateCurrentTreasury: (amount: number) => Promise<void>;
   createUser: (user: INewUser) => Promise<void>;
   updateUser: (user: IUser) => Promise<void>;
+  deleteUser: (id: number) => Promise<void>;
   setNewDistributionDate: (date: string) => Promise<void>;
 };
 
@@ -20,6 +21,7 @@ export const GlobalContext = createContext<GlobalContent>({
   updateCurrentTreasury: () => new Promise((resolve) => resolve()),
   createUser: () => new Promise((resolve) => resolve()),
   updateUser: () => new Promise((resolve) => resolve()),
+  deleteUser: () => new Promise((resolve) => resolve()),
   setNewDistributionDate: () => new Promise((resolve) => resolve()),
 });
 

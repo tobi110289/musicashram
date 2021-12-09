@@ -20,8 +20,9 @@ const UserList: NextPage<IUserList> = ({ admin }) => {
           <tr>
             <th className="w-1/4 border">Firstname</th>
             <th className="w-1/4 border">Lastname</th>
-            <th className="w-1/4 border">Tokens</th>
+            <th className="w-1/6 border">Tokens</th>
             <th className="w-1/4 border">Share</th>
+            {editable ? <th className="w-1/6 border">Delete?</th> : null}
           </tr>
         </thead>
         <tbody>

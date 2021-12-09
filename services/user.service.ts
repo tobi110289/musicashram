@@ -12,5 +12,8 @@ function createNewUser(user: INewUser): Promise<IUser> {
 function updateOneUser(user: IUser): Promise<IUser> {
   return fetchRequest(`/user/${user.id}`, options("PUT", user));
 }
+function deleteOneUser(id: number): Promise<IUser> {
+  return fetchRequest(`/user/${id}`, options("DELETE"));
+}
 
-export { getAllUsers, createNewUser, updateOneUser };
+export { getAllUsers, createNewUser, updateOneUser, deleteOneUser };

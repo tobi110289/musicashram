@@ -15,7 +15,7 @@ const AdminListUser: NextPage<IListUser> = ({
   even,
   editable,
 }) => {
-  const { updateUser } = useGlobalContext();
+  const { updateUser, deleteUser } = useGlobalContext();
 
   function edit(sel: string, val: string | number) {
     let newUser = user;
@@ -43,23 +43,32 @@ const AdminListUser: NextPage<IListUser> = ({
       },
     };
   }
+
   return (
     <tr className={even ? "text-grey-800" : ""}>
-      <th {...nameProps("first")}>{user.firstName}</th>
-      <th {...nameProps("last")}>{user.lastName}</th>
-      <th
+      <td className="text-center" {...nameProps("first")}>{user.firstName}</td>
+      <td className="text-center" {...nameProps("last")}>{user.lastName}</td>
+      <td
+        className="text-center"
         suppressContentEditableWarning={true}
         contentEditable={editable}
         onFocus={(e) => (e.target.innerHTML = "")}
         onBlur={(event) => {
           const value = +event.target.innerHTML;
-          if (value) edit("tokens", value);
+          if (value) edit("token", value);
           else reset("token", event);
         }}
       >
         {user.tokens}
-      </th>
-      <th>{user.tokens && user.tokens > 0 ? share : 0} €</th>
+      </td>
+      <td className="text-center">
+        {user.tokens && user.tokens > 0 ? share : 0} €
+      </td>
+      {editable ? (
+        <td className="text-center" onClick={() => deleteUser(user.id)}>
+          ❌
+        </td>
+      ) : null}
     </tr>
   );
 };

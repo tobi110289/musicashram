@@ -7,3 +7,4 @@ export { default as CreateUser } from "./createuser";
 export { default as SetNewDistributionDate } from "./setnewdistributiondate";
 export { default as AdminListUser } from "./adminlistuser";
 export { default as EditPencil } from "./editpencil";
+export { default as TotalTime } from "./totaltime";
