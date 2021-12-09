@@ -3,7 +3,11 @@ import type { AppProps } from "next/app";
 import { GlobalContext } from "../utility/context";
 import { useEffect, useState } from "react";
 import { IUser, INewUser } from "../interfaces/user";
-import { getAllUsers, createNewUser } from "../services/user.service";
+import {
+  getAllUsers,
+  createNewUser,
+  updateOneUser,
+} from "../services/user.service";
 import {
   getAllTreasuries,
   updateTreasury,
@@ -52,6 +56,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     setDistributionDate(newTreasury.distributionDate);
   }
 
+  async function updateUser(user: IUser): Promise<void> {
+    const newUser = await updateOneUser(user);
+    const userArray = users.filter((el) => el.id !== user.id);
+    newUser && setUsers([...userArray, newUser]);
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -62,6 +72,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         updateCurrentTreasury,
         createUser,
         setNewDistributionDate,
+        updateUser,
       }}
     >
       <Component {...pageProps} />

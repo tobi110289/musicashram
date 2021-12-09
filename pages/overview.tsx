@@ -9,7 +9,7 @@ const Overview: NextPage = () => {
     <div className="flex flex-col">
       <Treasury />
       <Cashout />
-      {users && users.length && <UserList />}
+      {users && users.length && <UserList admin={false} />}
     </div>
   );
 };

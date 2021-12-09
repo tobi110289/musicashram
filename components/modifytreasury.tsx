@@ -7,10 +7,10 @@ const ModifyTreasury: NextPage = () => {
   const [treasuryInput, setTreasuryInput] = useState<string | number>("");
 
   function handleClick(): void {
-    if (treasuryInput >= 0) {
+    if (treasuryInput > 0) {
       updateCurrentTreasury(treasuryInput as number);
-      setTreasuryInput("");
     }
+    setTreasuryInput("");
   }
 
   return (

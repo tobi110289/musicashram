@@ -5,18 +5,20 @@ import {
   CreateUser,
   SetNewDistributionDate,
   Cashout,
+  UserList,
 } from "../components";
 
 const Dashboard: NextPage = () => {
   return (
-    <div className="bg-orange h-screen w-screen flex flex-col">
+    <div className="bg-orange min-h-screen w-screen flex flex-col">
       <Treasury />
       <ModifyTreasury />
       <p className="mx-auto my-2">________________________</p>
       <Cashout />
       <SetNewDistributionDate />
-      <p className="mx-auto my-1">________________________</p>
+      <p className="mx-auto mb-4">________________________</p>
       <CreateUser />
+      <UserList admin={true} />
     </div>
   );
 };

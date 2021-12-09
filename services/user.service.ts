@@ -9,4 +9,8 @@ function createNewUser(user: INewUser): Promise<IUser> {
   return fetchRequest("/user", options("POST", user));
 }
 
-export { getAllUsers, createNewUser };
+function updateOneUser(user: IUser): Promise<IUser> {
+  return fetchRequest(`/user/${user.id}`, options("PUT", user));
+}
+
+export { getAllUsers, createNewUser, updateOneUser };
