@@ -7,8 +7,11 @@ import {
   Cashout,
   UserList,
 } from "../components";
+import { useGlobalContext } from "../utility/context";
 
 const Dashboard: NextPage = () => {
+  const { users } = useGlobalContext();
+
   return (
     <div className="bg-orange min-h-screen w-screen flex flex-col">
       <Treasury />
@@ -18,7 +21,7 @@ const Dashboard: NextPage = () => {
       <SetNewDistributionDate />
       <p className="mx-auto mb-4">________________________</p>
       <CreateUser />
-      <UserList admin={true} />
+      {users && users.length && <UserList admin={true} />}
     </div>
   );
 };

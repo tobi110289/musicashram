@@ -50,7 +50,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   async function createUser(user: INewUser): Promise<void> {
     const newUser = await createNewUser(user);
-    setUsers((prev) => [...prev, newUser]);
+    if (users && users.length) setUsers((prev) => [...prev, newUser]);
+    else setUsers([newUser]);
   }
 
   async function setNewDistributionDate(date: string): Promise<void> {
