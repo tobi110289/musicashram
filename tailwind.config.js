@@ -9,7 +9,8 @@ module.exports = {
       orange: "#AB804F",
       grey: colors.coolGray,
       black: colors.black,
-      white: colors.warmGray
+      white: colors.warmGray,
+      red: colors.red
     },
     extend: {},
   },

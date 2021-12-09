@@ -7,5 +7,8 @@ function getAllTreasuries(): Promise<ITreasury[]> {
 function updateTreasury(amount: number): Promise<ITreasury[]> {
   return fetchRequest("/treasury", options("PUT", { amount }));
 }
+function createTreasury(date: string): Promise<ITreasury> {
+  return fetchRequest("/treasury", options("POST", { date }));
+}
 
-export { getAllTreasuries, updateTreasury };
+export { getAllTreasuries, updateTreasury, createTreasury };

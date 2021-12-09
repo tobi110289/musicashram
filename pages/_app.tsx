@@ -2,9 +2,13 @@ import "tailwindcss/tailwind.css";
 import type { AppProps } from "next/app";
 import { GlobalContext } from "../utility/context";
 import { useEffect, useState } from "react";
-import { IUser } from "../interfaces/user";
+import { IUser, INewUser } from "../interfaces/user";
 import { getAllUsers, createNewUser } from "../services/user.service";
-import { getAllTreasuries, updateTreasury } from "../services/treasury.service";
+import {
+  getAllTreasuries,
+  updateTreasury,
+  createTreasury,
+} from "../services/treasury.service";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [users, setUsers] = useState<IUser[]>([]);
@@ -37,9 +41,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }
 
-  async function createUser(user: IUser): Promise<void> {
+  async function createUser(user: INewUser): Promise<void> {
     const newUser = await createNewUser(user);
     setUsers((prev) => [...prev, newUser]);
+  }
+
+  async function setNewDistributionDate(date: string): Promise<void> {
+    const newTreasury = await createTreasury(date);
+    setTreasury(newTreasury.amount);
+    setDistributionDate(newTreasury.distributionDate);
   }
 
   return (
@@ -51,6 +61,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         setTreasury,
         updateCurrentTreasury,
         createUser,
+        setNewDistributionDate,
       }}
     >
       <Component {...pageProps} />

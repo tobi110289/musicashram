@@ -7,7 +7,7 @@ const Treasury: NextPage = () => {
   return (
     <div className="flex flex-col my-8">
       <div className="flex m-auto">
-        <GiLockedChest className="text-7xl" />
+        <GiLockedChest className="text-6xl" />
         <p className="self-center text-4xl">: {treasury.toFixed(2)} €</p>
       </div>
       <p className="m-auto italic">(Total amount in treasury)</p>

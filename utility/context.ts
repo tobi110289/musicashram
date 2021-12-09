@@ -1,5 +1,5 @@
 import { createContext, useContext, Dispatch, SetStateAction } from "react";
-import { IUser } from "../interfaces/user";
+import { IUser, INewUser } from "../interfaces/user";
 
 export type GlobalContent = {
   users: IUser[];
@@ -7,7 +7,8 @@ export type GlobalContent = {
   distributionDate: string;
   setTreasury: Dispatch<SetStateAction<number>>;
   updateCurrentTreasury: (amount: number) => Promise<void>;
-  createUser: (user: IUser) => Promise<void>;
+  createUser: (user: INewUser) => Promise<void>;
+  setNewDistributionDate: (date: string) => Promise<void>;
 };
 
 export const GlobalContext = createContext<GlobalContent>({
@@ -17,6 +18,7 @@ export const GlobalContext = createContext<GlobalContent>({
   setTreasury: () => {},
   updateCurrentTreasury: () => new Promise((resolve) => resolve()),
   createUser: () => new Promise((resolve) => resolve()),
+  setNewDistributionDate: () => new Promise((resolve) => resolve()),
 });
 
 export const useGlobalContext = () => useContext(GlobalContext);

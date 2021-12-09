@@ -20,10 +20,12 @@ function sortByFirstName(users: IUser[]) {
     : [];
 }
 
-function returnTotalTokens(users: IUser[]) {
-  return users.length
-    ? users.map((user) => user.tokens).reduce((a, b) => a && b && a + b)
-    : 0;
+function returnTotalTokens(users: IUser[]): number {
+  let totalToken = 0;
+  if (users.length > 0) {
+    totalToken = users.map((user) => user.tokens).reduce((a, b) => a + b);
+  }
+  return totalToken;
 }
 
 function calculateDaysLeft(date: string, now: number) {
@@ -41,9 +43,14 @@ function formatedDateNow(date: number) {
   return `${formatedDateNow[2]}-${formatedDateNow[0]}-${formatedDateNow[1]}`;
 }
 
+function isDateInPast(date: string) {
+  return +new Date(formatedDateNow(Date.now())) > +new Date(date);
+}
+
 export {
   calculateShare,
   sortByFirstName,
   returnTotalTokens,
   calculateDaysLeft,
+  isDateInPast,
 };

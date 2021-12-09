@@ -1,6 +1,10 @@
-export interface IUser {
-  id?: number;
+export interface INewUser {
   firstName: string;
   lastName: string;
-  tokens?: number;
+}
+export interface IUser {
+  id: number;
+  firstName: string;
+  lastName: string;
+  tokens: number;
 }
