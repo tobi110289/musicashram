@@ -29,6 +29,7 @@ function returnTotalTokens(users: IUser[]): number {
 }
 
 function calculateDaysLeft(date: string, now: number) {
+  if (!date) return null;
   const delta = Math.abs(+new Date(date) - +new Date(now)) / 1000;
   const days = Math.floor(delta / 86400);
   return days;
@@ -38,10 +39,15 @@ function isDateInPast(date: string) {
   return +new Date(Date.now()) > +new Date(date);
 }
 
+function isDateToday(date: string) {
+  return Math.abs(+new Date(Date.now()) - +new Date(date)) < 8.64e7;
+}
+
 export {
   calculateShare,
   sortByFirstName,
   returnTotalTokens,
   calculateDaysLeft,
   isDateInPast,
+  isDateToday,
 };

@@ -7,7 +7,6 @@ const SetNewDistributionDate: NextPage = () => {
   const { setNewDistributionDate } = useGlobalContext();
 
   function handleClick() {
-    console.log(date);
     date.length && setNewDistributionDate(date);
     setDate("");
   }
