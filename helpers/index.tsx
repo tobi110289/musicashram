@@ -29,22 +29,13 @@ function returnTotalTokens(users: IUser[]): number {
 }
 
 function calculateDaysLeft(date: string, now: number) {
-  const delta =
-    Math.abs(+new Date(date) - +new Date(formatedDateNow(now))) / 1000;
+  const delta = Math.abs(+new Date(date) - +new Date(now)) / 1000;
   const days = Math.floor(delta / 86400);
   return days;
 }
 
-function formatedDateNow(date: number) {
-  const formatedDateNow = new Date(date)
-    .toLocaleString()
-    .split(",")[0]
-    .split("/");
-  return `${formatedDateNow[2]}-${formatedDateNow[0]}-${formatedDateNow[1]}`;
-}
-
 function isDateInPast(date: string) {
-  return +new Date(formatedDateNow(Date.now())) > +new Date(date);
+  return +new Date(Date.now()) > +new Date(date);
 }
 
 export {
