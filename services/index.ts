@@ -15,12 +15,15 @@ export function fetchRequest(path: string, options?: Ioptions) {
     });
 }
 
-export function options(method: string, body?: any) {
+export function options(method: string, body?: any, accessToken?: string) {
   return {
     method: method,
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
     },
     body: JSON.stringify(body),
+    credentials: "include",
+    mode: "cors",
   };
 }

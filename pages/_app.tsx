@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { GlobalContext } from "../utility/context";
 import { useEffect, useState } from "react";
 import { IUser, INewUser } from "../interfaces/user";
-import { ITreasury } from "../interfaces/treasury";
+import { IAdmin } from "../interfaces/admin";
 import {
   getAllUsers,
   createNewUser,
@@ -16,11 +16,13 @@ import {
   updateTreasury,
   createTreasury,
 } from "../services/treasury.service";
+import { loginAdmin } from "../services/admin.service";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [users, setUsers] = useState<IUser[]>([]);
   const [treasury, setTreasury] = useState<number>(0);
   const [distributionDate, setDistributionDate] = useState<string>("");
+  const [isAuth, setIsAuth] = useState<boolean>(false);
 
   useEffect(() => {
     getUsers();
@@ -78,12 +80,24 @@ function MyApp({ Component, pageProps }: AppProps) {
     newUsers && setUsers(newUsers);
   }
 
+  async function adminLogin(admin: IAdmin): Promise<void> {
+    const res = await loginAdmin(admin);
+    if (res.error) {
+      alert(`${res.message}`);
+    } else {
+      const { accessToken } = res;
+      accessToken && localStorage.setItem("accessToken", accessToken);
+      setIsAuth(true);
+    }
+  }
+
   return (
     <GlobalContext.Provider
       value={{
         users,
         treasury,
         distributionDate,
+        isAuth,
         setTreasury,
         updateCurrentTreasury,
         createUser,
@@ -91,6 +105,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         updateUser,
         deleteUser,
         deleteAllTokens,
+        adminLogin,
       }}
     >
       <Component {...pageProps} />
