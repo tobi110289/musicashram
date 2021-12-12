@@ -45,9 +45,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 
   async function updateCurrentTreasury(amount: number): Promise<void> {
-    const updatedTreasury = await updateTreasury(amount);
-    if (updatedTreasury && updatedTreasury[0]) {
-      setTreasury(updatedTreasury[0].amount);
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      const updatedTreasury = await updateTreasury(amount, accessToken);
+      if (updatedTreasury && updatedTreasury[0]) {
+        setTreasury(updatedTreasury[0].amount);
+      }
     }
   }
 
@@ -58,9 +61,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 
   async function setNewDistributionDate(date: string): Promise<void> {
-    const newTreasury = await createTreasury(date);
-    setTreasury(newTreasury.amount);
-    setDistributionDate(newTreasury.distributionDate);
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      const newTreasury = await createTreasury(date, accessToken);
+      setTreasury(newTreasury.amount);
+      setDistributionDate(newTreasury.distributionDate);
+    }
   }
 
   async function updateUser(user: IUser): Promise<void> {
