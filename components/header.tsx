@@ -6,8 +6,8 @@ const Header: NextPage = () => {
   const { admin, logout } = useGlobalContext();
 
   return (
-    <div className="flex justify-end">
-      <h1 className="">
+    <div className="flex justify-end mt-2">
+      <h1 className="m-auto">
         Welcome back {capitalizeFirstLetter(admin)}!
       </h1>
       <button

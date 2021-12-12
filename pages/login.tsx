@@ -24,11 +24,13 @@ const Login: NextPage = () => {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         type="text"
-      />
+        autoComplete="username"
+        />
       <input
         placeholder="Password"
         type="password"
         value={password}
+        autoComplete="current-password"
         onChange={(e) => setPassword(e.target.value)}
       />
       <button>Login</button>
