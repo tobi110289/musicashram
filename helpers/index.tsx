@@ -43,6 +43,10 @@ function isDateToday(date: string) {
   return Math.abs(+new Date(Date.now()) - +new Date(date)) < 8.64e7;
 }
 
+function capitalizeFirstLetter(name: string) {
+  return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+}
+
 export {
   calculateShare,
   sortByFirstName,
@@ -50,4 +54,5 @@ export {
   calculateDaysLeft,
   isDateInPast,
   isDateToday,
+  capitalizeFirstLetter,
 };

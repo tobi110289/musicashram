@@ -126,6 +126,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }
 
+  function logout() {
+    localStorage.removeItem("accessToken");
+    setIsAuth(false);
+    setAdmin("");
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -134,6 +140,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         treasury,
         distributionDate,
         isAuth,
+        logout,
         setTreasury,
         updateCurrentTreasury,
         createUser,
