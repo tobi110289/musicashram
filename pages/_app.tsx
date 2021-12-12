@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [treasury, setTreasury] = useState<number>(0);
   const [distributionDate, setDistributionDate] = useState<string>("");
   const [isAuth, setIsAuth] = useState<boolean>(false);
+  const [admin, setAdmin] = useState<string>("");
 
   useEffect(() => {
     getUsers();
@@ -104,11 +105,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (res.error) {
       alert(`${res.message}`);
     } else {
-      const { accessToken } = res;
+      const { accessToken, admin } = res;
       accessToken && localStorage.setItem("accessToken", accessToken);
       setIsAuth(true);
+      admin && setAdmin(admin);
     }
   }
+
   async function checkAdmin(): Promise<void> {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
@@ -117,8 +120,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         alert(`${res.message}`);
       }
       if (res.admin) {
-        console.log("admin:", res.admin);
         setIsAuth(true);
+        setAdmin(res.admin);
       }
     }
   }
@@ -126,6 +129,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <GlobalContext.Provider
       value={{
+        admin,
         users,
         treasury,
         distributionDate,

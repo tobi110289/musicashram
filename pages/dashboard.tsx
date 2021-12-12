@@ -10,10 +10,11 @@ import {
 import { useGlobalContext } from "../utility/context";
 
 const Dashboard: NextPage = () => {
-  const { users } = useGlobalContext();
+  const { admin, users } = useGlobalContext();
 
   return (
     <div className="bg-orange min-h-screen w-screen flex flex-col">
+      <h1 className="mx-auto my-2">Welcome back {admin.toUpperCase()}!</h1>
       <Treasury />
       <ModifyTreasury />
       <p className="mx-auto my-2">________________________</p>

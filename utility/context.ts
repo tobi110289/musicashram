@@ -3,6 +3,7 @@ import { IUser, INewUser } from "../interfaces/user";
 import { IAdmin } from "../interfaces/admin";
 
 export type GlobalContent = {
+  admin: string
   users: IUser[];
   treasury: number;
   distributionDate: string;
@@ -18,6 +19,7 @@ export type GlobalContent = {
 };
 
 export const GlobalContext = createContext<GlobalContent>({
+  admin: "",
   users: [],
   treasury: 0,
   distributionDate: "",
