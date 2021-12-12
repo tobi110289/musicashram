@@ -13,10 +13,10 @@ function updateOneUser(user: IUser, accessToken: string): Promise<IUser> {
   return fetchRequest(`/user/${user.id}`, options("PUT", user, accessToken));
 }
 function deleteOneUser(id: number, accessToken: string): Promise<IUser> {
-  return fetchRequest(`/user/${id}`, options("DELETE", null, accessToken));
+  return fetchRequest(`/user/${id}`, options("DELETE", undefined, accessToken));
 }
 function deleteAllUserTokens(accessToken: string): Promise<IUser[]> {
-  return fetchRequest(`/usertokens`, options("PUT", null, accessToken));
+  return fetchRequest(`/usertokens`, options("PUT", undefined, accessToken));
 }
 
 export {
