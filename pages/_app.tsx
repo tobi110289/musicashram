@@ -112,9 +112,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   async function checkAdmin(): Promise<void> {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
-      const admin = await getAdmin(accessToken);
-      console.log("admin:", admin);
-      if (admin) {
+      const res = await getAdmin(accessToken);
+      if (res.error) {
+        alert(`${res.message}`);
+      }
+      if (res.admin) {
+        console.log("admin:", res.admin);
         setIsAuth(true);
       }
     }

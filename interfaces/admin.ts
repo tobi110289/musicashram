@@ -8,3 +8,9 @@ export interface IToken {
   error?: string;
   message?: string;
 }
+
+export interface IName {
+  admin?: string;
+  error?: string;
+  message?: string;
+}
