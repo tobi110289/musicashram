@@ -16,7 +16,7 @@ import {
   updateTreasury,
   createTreasury,
 } from "../services/treasury.service";
-import { loginAdmin } from "../services/admin.service";
+import { loginAdmin, getAdmin } from "../services/admin.service";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [users, setUsers] = useState<IUser[]>([]);
@@ -27,6 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     getUsers();
     getCurrentTreasury();
+    checkAdmin();
   }, []);
 
   async function getUsers(): Promise<void> {
@@ -106,6 +107,16 @@ function MyApp({ Component, pageProps }: AppProps) {
       const { accessToken } = res;
       accessToken && localStorage.setItem("accessToken", accessToken);
       setIsAuth(true);
+    }
+  }
+  async function checkAdmin(): Promise<void> {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      const admin = await getAdmin(accessToken);
+      console.log("admin:", admin);
+      if (admin) {
+        setIsAuth(true);
+      }
     }
   }
 
