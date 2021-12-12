@@ -17,13 +17,13 @@ const ModifyTreasury: NextPage = () => {
     <div className="flex mx-auto">
       <input
         type="number"
-        className="text-2xl w-16"
+        className="shadow appearance-none border rounded w-32 h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline text-2xl"
         value={treasuryInput}
         onChange={(e) => setTreasuryInput(+e.target.value)}
       />
       <p className="self-center text-2xl">€</p>
       <button
-        className="w-20 mx-2 flex items-center justify-center rounded-md bg-black text-white-100 text-2xl"
+        className="w-16 mx-2 h-12 py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-black text-white-100 hover:bg-grey-800 text-base"
         onClick={handleClick}
       >
         Add

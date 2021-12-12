@@ -9,4 +9,8 @@ function getAdmin(accessToken: string): Promise<IToken> {
   return fetchRequest("/admin", options("GET", undefined, accessToken));
 }
 
-export { loginAdmin, getAdmin };
+function createAdmin(admin: IAdmin): Promise<IToken> {
+  return fetchRequest("/admincreate", options("POST", admin));
+}
+
+export { loginAdmin, getAdmin, createAdmin };

@@ -27,21 +27,21 @@ const CreateUser: NextPage = () => {
           <input
             type="string"
             required={true}
-            className="text-2xl w-32 mb-2"
+            className="shadow appearance-none border rounded w-48 mb-2 h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline text-2xl"
             value={firstName}
             placeholder="First Name"
             onChange={(e) => setFirstName(e.target.value)}
           />
           <input
             type="string"
-            className="text-2xl w-32"
+            className="shadow appearance-none border rounded w-48 h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline text-2xl"
             value={lastName}
             placeholder="Last Name"
             onChange={(e) => setLastName(e.target.value)}
           />
         </div>
         <button
-          className="w-20 mx-2 flex items-center justify-center rounded-md bg-black text-white-100 text-2xl"
+          className="w-20 mx-2 my-auto h-12 py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-black text-white-100 hover:bg-grey-800 text-base"
           onClick={handleSubmit}
         >
           Create

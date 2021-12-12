@@ -18,22 +18,29 @@ const Login: NextPage = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col  max-w-md mb-4 form-input mx-auto p-20"
+    >
       <input
+        className="shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline my-5"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         type="text"
         autoComplete="username"
-        />
+      />
       <input
+        className="shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline mb-5"
         placeholder="Password"
         type="password"
         value={password}
         autoComplete="current-password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button>Login</button>
+      <button className="bg-black text-white-100 hover:bg-grey-800 font-bold w-full h-12 py-2 px-4  rounded focus:outline-none focus:shadow-outline">
+        Login
+      </button>
     </form>
   );
 };
