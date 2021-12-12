@@ -5,18 +5,18 @@ function getAllUsers(): Promise<IUser[]> {
   return fetchRequest("/users");
 }
 
-function createNewUser(user: INewUser): Promise<IUser> {
-  return fetchRequest("/user", options("POST", user));
+function createNewUser(user: INewUser, accessToken: string): Promise<IUser> {
+  return fetchRequest("/user", options("POST", user, accessToken));
 }
 
-function updateOneUser(user: IUser): Promise<IUser> {
-  return fetchRequest(`/user/${user.id}`, options("PUT", user));
+function updateOneUser(user: IUser, accessToken: string): Promise<IUser> {
+  return fetchRequest(`/user/${user.id}`, options("PUT", user, accessToken));
 }
-function deleteOneUser(id: number): Promise<IUser> {
-  return fetchRequest(`/user/${id}`, options("DELETE"));
+function deleteOneUser(id: number, accessToken: string): Promise<IUser> {
+  return fetchRequest(`/user/${id}`, options("DELETE", null, accessToken));
 }
-function deleteAllUserTokens(): Promise<IUser[]> {
-  return fetchRequest(`/usertokens`, options("PUT"));
+function deleteAllUserTokens(accessToken: string): Promise<IUser[]> {
+  return fetchRequest(`/usertokens`, options("PUT", null, accessToken));
 }
 
 export {

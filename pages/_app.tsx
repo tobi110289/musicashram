@@ -55,9 +55,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 
   async function createUser(user: INewUser): Promise<void> {
-    const newUser = await createNewUser(user);
-    if (users && users.length) setUsers((prev) => [...prev, newUser]);
-    else setUsers([newUser]);
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      const newUser = await createNewUser(user, accessToken);
+      if (users && users.length) setUsers((prev) => [...prev, newUser]);
+      else setUsers([newUser]);
+    }
   }
 
   async function setNewDistributionDate(date: string): Promise<void> {
@@ -70,20 +73,29 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 
   async function updateUser(user: IUser): Promise<void> {
-    const newUser = await updateOneUser(user);
-    const userArray = users.filter((el) => el.id !== user.id);
-    newUser && setUsers([...userArray, newUser]);
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      const newUser = await updateOneUser(user, accessToken);
+      const userArray = users.filter((el) => el.id !== user.id);
+      newUser && setUsers([...userArray, newUser]);
+    }
   }
 
   async function deleteUser(id: number): Promise<void> {
-    await deleteOneUser(id);
-    const userArray = users.filter((el) => el.id !== id);
-    setUsers(userArray);
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      await deleteOneUser(id, accessToken);
+      const userArray = users.filter((el) => el.id !== id);
+      setUsers(userArray);
+    }
   }
 
   async function deleteAllTokens(): Promise<void> {
-    const newUsers = await deleteAllUserTokens();
-    newUsers && setUsers(newUsers);
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      const newUsers = await deleteAllUserTokens(accessToken);
+      newUsers && setUsers(newUsers);
+    }
   }
 
   async function adminLogin(admin: IAdmin): Promise<void> {
