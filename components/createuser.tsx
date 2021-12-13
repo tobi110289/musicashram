@@ -39,7 +39,7 @@ const CreateUser: NextPage = () => {
           onChange={(e) => setLastName(e.target.value)}
         />
         <button
-          className="w-20 mx-auto h-12 py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-black text-white-100 hover:bg-grey-800 text-base"
+          className="w-20 mb-2 mx-auto h-12 py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-black text-white-100 hover:bg-grey-800 text-base"
           onClick={handleSubmit}
         >
           Create

@@ -20,7 +20,7 @@ const EditPencil: NextPage<IEditPencil> = ({ setter, val }) => {
         </>
       ) : (
         <>
-          <TiPencil className="flex m-auto text-6xl my-4" />
+          <TiPencil className="text-2xl self-center" />
           <p className="self-center mx-1">Edit</p>
         </>
       )}

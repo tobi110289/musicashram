@@ -27,7 +27,7 @@ const UserList: NextPage<IUserList> = ({ admin }) => {
                   deleteAllTokens();
                 }
               }}
-              className="bg-black text-white-100 hover:bg-grey-800 font-bold w-48 h-12 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-black text-white-100 hover:bg-grey-800 font-bold w-52 h-12 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               ⚠️ Delete All Tokens ⚠️
             </button>

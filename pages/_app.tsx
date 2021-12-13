@@ -28,10 +28,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [bg, setBg] = useState<string>("");
 
   useEffect(() => {
+    setBg(rndBg());
     getUsers();
     getCurrentTreasury();
     checkAdmin();
-    setBg(rndBg());
   }, []);
 
   async function getUsers(): Promise<void> {

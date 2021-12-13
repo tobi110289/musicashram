@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors');
 module.exports = {
   mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     colors: {
       orange: "#AB804F",
@@ -13,7 +13,7 @@ module.exports = {
       red: colors.red
     },
     extend: {
-      backgroundImage: {
+      backgroundImage: theme => ({
         'img1': "url('/images/background-1.webp')",
         'img2': "url('/images/background-2.webp')",
         'img3': "url('/images/background-3.webp')",
@@ -25,7 +25,7 @@ module.exports = {
         'img9': "url('/images/background-9.webp')",
         'img10': "url('/images/background-10.webp')",
         'img11': "url('/images/background-11.webp')"
-      }
+      })
     },
   },
   variants: {
