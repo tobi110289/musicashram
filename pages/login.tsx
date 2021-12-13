@@ -23,7 +23,7 @@ const Login: NextPage = () => {
       className="flex flex-col  z-10 w-screen mb-4 p-20 max-w-md form-input absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
     >
       <input
-        className="shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline mb-2"
+        className="border-darkred shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline mb-2"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
@@ -31,14 +31,14 @@ const Login: NextPage = () => {
         autoComplete="username"
       />
       <input
-        className="shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline mb-4"
+        className="border-darkred shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline mb-4"
         placeholder="Password"
         type="password"
         value={password}
         autoComplete="current-password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button className="bg-black text-white-100 hover:bg-grey-800 font-bold w-full h-12 py-2 px-4  rounded focus:outline-none focus:shadow-outline">
+      <button className="bg-darkred text-white-100 hover:bg-grey-800 font-bold w-full h-12 py-2 px-4  rounded focus:outline-none focus:shadow-outline">
         Login
       </button>
     </form>

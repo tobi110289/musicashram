@@ -26,20 +26,20 @@ const CreateUser: NextPage = () => {
         <input
           type="string"
           required={true}
-          className="shadow appearance-none border rounded w-48 mb-2 h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline text-2xl"
+          className="border-darkred shadow appearance-none border rounded w-48 mb-2 h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline text-2xl"
           value={firstName}
           placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
         />
         <input
           type="string"
-          className="shadow appearance-none border rounded w-48 h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline text-2xl mb-2"
+          className="border-darkred shadow appearance-none border rounded w-48 h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline text-2xl mb-2"
           value={lastName}
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
         />
         <button
-          className="w-20 mb-2 mx-auto h-12 py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-black text-white-100 hover:bg-grey-800 text-base"
+          className="w-20 mb-2 mx-auto h-12 py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-darkred text-white-100 hover:bg-grey-800 text-base"
           onClick={handleSubmit}
         >
           Create

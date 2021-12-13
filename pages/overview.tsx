@@ -6,7 +6,7 @@ const Overview: NextPage = () => {
   const { users } = useGlobalContext();
 
   return (
-    <div className="flex flex-col z-10 absolute min-h-screen w-screen">
+    <div className="flex flex-col z-10 absolute w-screen h-screen overflow-scroll appearance-none">
       <div className="my-7"></div>
       <Treasury />
       <Cashout />

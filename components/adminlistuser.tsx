@@ -45,7 +45,7 @@ const AdminListUser: NextPage<IListUser> = ({
   }
 
   return (
-    <tr className={even ? "text-grey-800" : ""}>
+    <tr className={even ? "text-grey-900" : ""}>
       <td className="text-center" {...nameProps("first")}>
         {user.firstName}
       </td>

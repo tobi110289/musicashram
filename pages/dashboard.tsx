@@ -14,7 +14,7 @@ const Dashboard: NextPage = () => {
   const { users } = useGlobalContext();
 
   return (
-    <div className="min-h-screen w-screen flex flex-col absolute z-10">
+    <div className="overflow-scroll appearance-none h-screen w-screen flex flex-col absolute z-10">
       <Header />
       <Treasury />
       <ModifyTreasury />

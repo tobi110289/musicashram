@@ -9,7 +9,7 @@ interface IListUser {
 
 const ListUser: NextPage<IListUser> = ({ user, share, even }) => {
   return (
-    <tr className={even ? "text-grey-800" : "" + ""}>
+    <tr className={even ? "text-grey-900" : "" + ""}>
       <td className="text-center">{user.firstName}</td>
       <td className="text-center">{user.lastName}</td>
       <td className="text-center">{user.tokens}</td>
