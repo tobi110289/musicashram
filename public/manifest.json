@@ -1,6 +1,6 @@
 {
   "name": "Music Ashram Token Tracker",
-  "short_name": "MA Token",
+  "short_name": "Token Tracker",
   "icons": [
     {
       "src": "/icon.png",
@@ -16,7 +16,6 @@
   ],
   "theme_color": "#661d15",
   "background_color": "#661d15",
-  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait"
 }
