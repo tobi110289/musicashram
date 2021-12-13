@@ -14,7 +14,7 @@ const CreateAdmin: NextPage = () => {
     if (username && passwordonce && password && passwordonce === password) {
       const admin = { username, password };
       await createAdmin(admin);
-      router.push("/login");
+      router.push("/admin");
     } else {
       alert(
         "Please enter a username and make sure you write the same password twice"

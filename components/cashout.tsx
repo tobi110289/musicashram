@@ -41,7 +41,7 @@ const Cashout: NextPage = () => {
         {daysLeft !== null ? (
           nextDistribution(distributionDate)
         ) : (
-          <p className="m-auto text-xl">No distribution planned</p>
+          <p className="m-auto text-xl">No connection to server.</p>
         )}
       </div>
       {daysLeft !== null ? (
