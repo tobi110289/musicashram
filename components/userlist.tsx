@@ -15,13 +15,13 @@ const UserList: NextPage<IUserList> = ({ admin }) => {
   return (
     <div>
       {admin ? (
-        <div className="flex flex-col">
+        <div className="flex">
           <EditPencil setter={setEditable} val={editable} />
           {editable && (
             <button
               onClick={() => {
                 const result = confirm(
-                  "Are you sure you want to reset all tokens?"
+                  "Are you sure you want to reset all tokens of everyone?"
                 );
                 if (result) {
                   deleteAllTokens();

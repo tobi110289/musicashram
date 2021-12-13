@@ -9,13 +9,12 @@ import {
   Header,
 } from "../components";
 import { useGlobalContext } from "../utility/context";
-import { TiPencil, TiTickOutline } from "react-icons/ti";
 
 const Dashboard: NextPage = () => {
   const { users } = useGlobalContext();
 
   return (
-    <div className="bg-orange min-h-screen w-screen flex flex-col absolute z-10">
+    <div className="min-h-screen w-screen flex flex-col absolute z-10">
       <Header />
       <Treasury />
       <ModifyTreasury />

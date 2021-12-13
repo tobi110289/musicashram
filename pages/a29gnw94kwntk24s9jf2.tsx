@@ -2,10 +2,8 @@ import type { NextPage } from "next";
 import React, { useState } from "react";
 import { createAdmin } from "../services/admin.service";
 import { useRouter } from "next/router";
-import { useGlobalContext } from "../utility/context";
 
 const CreateAdmin: NextPage = () => {
-  const { bg } = useGlobalContext();
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [passwordonce, setPasswordonce] = useState("");
@@ -26,11 +24,11 @@ const CreateAdmin: NextPage = () => {
 
   return (
     <div
-      className={`${bg} bg-cover bg-no-repeat bg-center min-h-screen w-screen`}
+      className="bg-img5 bg-cover bg-no-repeat bg-center min-h-screen w-screen"
     >
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col max-w-md form-input absolute z-10 min-h-screen mx-auto p-20 w-screen"
+        className="flex flex-col max-w-md form-input absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 min-h-screen p-20 w-screen"
       >
         <input
           className="shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline mb-2"
