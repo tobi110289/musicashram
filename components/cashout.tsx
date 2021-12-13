@@ -35,7 +35,7 @@ const Cashout: NextPage = () => {
   }
 
   return (
-    <div className="flex flex-col mb-8 mx-auto">
+    <div className="flex flex-col mb-2 mx-auto">
       <div className="flex self-center m-2">
         <GiShinyPurse className="text-7xl mr-2" />
         {daysLeft !== null ? (

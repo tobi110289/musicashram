@@ -47,6 +47,10 @@ function capitalizeFirstLetter(name: string) {
   return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 }
 
+function rndBg() {
+  return `bg-img${Math.round(Math.random() * 10) + 1}`;
+}
+
 export {
   calculateShare,
   sortByFirstName,
@@ -55,4 +59,5 @@ export {
   isDateInPast,
   isDateToday,
   capitalizeFirstLetter,
+  rndBg
 };

@@ -8,10 +8,23 @@ interface IEditPencil {
 }
 
 const EditPencil: NextPage<IEditPencil> = ({ setter, val }) => {
-  return val ? (
-    <TiTickOutline className="flex m-auto text-6xl my-4" onClick={() => setter(!val)} />
-  ) : (
-    <TiPencil className="flex m-auto text-6xl my-4" onClick={() => setter(!val)} />
+  return (
+    <button
+      onClick={() => setter(!val)}
+      className="bg-black text-white-100 hover:bg-grey-800 font-bold w-24 h-12 py-2 px-4 rounded focus:outline-none flex focus:shadow-outline justify-center"
+    >
+      {val ? (
+        <>
+          <TiTickOutline className="text-2xl self-center" />
+          <p className="self-center">Done</p>
+        </>
+      ) : (
+        <>
+          <TiPencil className="flex m-auto text-6xl my-4" />
+          <p className="self-center mx-1">Edit</p>
+        </>
+      )}
+    </button>
   );
 };
 

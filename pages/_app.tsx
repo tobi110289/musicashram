@@ -17,6 +17,7 @@ import {
   createTreasury,
 } from "../services/treasury.service";
 import { loginAdmin, getAdmin } from "../services/admin.service";
+import { rndBg } from "../helpers";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [users, setUsers] = useState<IUser[]>([]);
@@ -24,11 +25,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [distributionDate, setDistributionDate] = useState<string>("");
   const [isAuth, setIsAuth] = useState<boolean>(false);
   const [admin, setAdmin] = useState<string>("");
+  const [bg, setBg] = useState<string>("");
 
   useEffect(() => {
     getUsers();
     getCurrentTreasury();
     checkAdmin();
+    setBg(rndBg());
   }, []);
 
   async function getUsers(): Promise<void> {
@@ -135,6 +138,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <GlobalContext.Provider
       value={{
+        bg,
         admin,
         users,
         treasury,

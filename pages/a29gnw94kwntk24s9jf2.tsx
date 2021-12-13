@@ -2,8 +2,10 @@ import type { NextPage } from "next";
 import React, { useState } from "react";
 import { createAdmin } from "../services/admin.service";
 import { useRouter } from "next/router";
+import { useGlobalContext } from "../utility/context";
 
 const CreateAdmin: NextPage = () => {
+  const { bg } = useGlobalContext();
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [passwordonce, setPasswordonce] = useState("");
@@ -23,27 +25,29 @@ const CreateAdmin: NextPage = () => {
   }
 
   return (
-    <div className="bg-orange min-h-screen w-screen">
+    <div
+      className={`${bg} bg-cover bg-no-repeat bg-center min-h-screen w-screen`}
+    >
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col max-w-md mb-4 form-input mx-auto p-20"
+        className="flex flex-col max-w-md form-input absolute z-10 min-h-screen mx-auto p-20 w-screen"
       >
         <input
-          className="shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline my-5"
+          className="shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline mb-2"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           type="text"
         />
         <input
-          className="shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline mb-5"
+          className="shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline mb-2"
           placeholder="Password"
           type="password"
           value={passwordonce}
           onChange={(e) => setPasswordonce(e.target.value)}
         />
         <input
-          className="shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline mb-5"
+          className="shadow appearance-none border rounded w-full h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline mb-4"
           placeholder="Re-Type Password"
           type="password"
           value={password}
@@ -53,6 +57,7 @@ const CreateAdmin: NextPage = () => {
           Create
         </button>
       </form>
+      <div className="bg-orange opacity-50 z-0 min-h-screen w-screen"></div>
     </div>
   );
 };

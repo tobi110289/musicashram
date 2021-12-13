@@ -4,10 +4,13 @@ import Login from "./login";
 import { useGlobalContext } from "../utility/context";
 
 const Admin: NextPage = () => {
-  const { isAuth } = useGlobalContext();
+  const { bg, isAuth } = useGlobalContext();
   return (
-    <div className="bg-orange h-screen w-screen">
+    <div
+      className={`${bg} bg-cover bg-no-repeat bg-center min-h-screen w-screen`}
+    >
       {isAuth ? <Dashboard /> : <Login />}
+      <div className="bg-orange opacity-50 z-0 min-h-screen w-sceen"></div>
     </div>
   );
 };
