@@ -1,5 +1,6 @@
 import "tailwindcss/tailwind.css";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import { GlobalContext } from "../utility/context";
 import { useEffect, useState } from "react";
 import { IUser, INewUser } from "../interfaces/user";
@@ -151,6 +152,20 @@ function MyApp({ Component, pageProps }: AppProps) {
         adminLogin,
       }}
     >
+      <Head>
+        <title>Music Ashram Token Tracker</title>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icon.png"></link>
+        <meta name="theme-color" content="#661d15" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1"
+        ></meta>
+        <meta
+          name="description"
+          content="Payment distribution system for Music Ashram artist collective."
+        ></meta>
+      </Head>
       <Component {...pageProps} />
     </GlobalContext.Provider>
   );
