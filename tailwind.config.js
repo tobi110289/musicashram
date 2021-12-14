@@ -11,7 +11,8 @@ module.exports = {
       grey: colors.coolGray,
       black: colors.black,
       white: colors.warmGray,
-      red: colors.red
+      red: colors.red,
+      yellow: "#debe7fb3"
     },
     extend: {
       backgroundImage: theme => ({

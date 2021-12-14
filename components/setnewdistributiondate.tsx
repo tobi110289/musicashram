@@ -14,7 +14,7 @@ const SetNewDistributionDate: NextPage = () => {
   return (
     <div className="flex flex-col">
       <input
-        className="border-darkred shadow appearance-none border rounded w-48 h-12 py-2 px-3 text-grey-600 leading-tight focus:outline-none focus:shadow-outline text-2xl mx-auto"
+        className="border-darkred shadow appearance-none border rounded w-48 h-12 py-2 px-3 bg-yellow placeholder-orange text-darkred leading-tight focus:outline-none focus:shadow-outline text-2xl mx-auto"
         type="date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
