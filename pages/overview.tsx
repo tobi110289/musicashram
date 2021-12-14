@@ -8,12 +8,16 @@ const Overview: NextPage = () => {
 
   return (
     <div className="flex flex-col z-10 absolute w-screen h-screen overflow-scroll appearance-none">
-      <Image
-        alt="Music Ashram Logo"
-        src="/Logo.png"
-        width={1280}
-        height={720}
-      />
+      <div>
+        <Image
+          alt="Music Ashram Logo"
+          priority
+          src="/Logo.png"
+          width={1280}
+          height={720}
+          layout="responsive"
+        />
+      </div>
       <Treasury />
       <Cashout />
       <div className="mb-6"></div>
