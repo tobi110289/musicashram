@@ -38,7 +38,7 @@ const Login: NextPage = () => {
         autoComplete="current-password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button className="bg-darkred text-white-100 hover:bg-grey-800 font-bold w-full h-12 py-2 px-4  rounded focus:outline-none focus:shadow-outline">
+      <button className="bg-darkred text-yellow hover:bg-grey-800 w-full h-12 py-2 px-4  rounded focus:outline-none focus:shadow-outline">
         Login
       </button>
     </form>

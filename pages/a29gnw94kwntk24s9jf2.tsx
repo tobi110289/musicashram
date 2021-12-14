@@ -31,6 +31,7 @@ const CreateAdmin: NextPage = () => {
         <input
           className="border-darkred shadow appearance-none border rounded w-full h-12 py-2 px-3 bg-yellow placeholder-orange text-darkred leading-tight focus:outline-none focus:shadow-outline mb-2"
           placeholder="Username"
+          autoComplete="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           type="text"
@@ -38,6 +39,7 @@ const CreateAdmin: NextPage = () => {
         <input
           className="border-darkred shadow appearance-none border rounded w-full h-12 py-2 px-3 bg-yellow placeholder-orange text-darkred leading-tight focus:outline-none focus:shadow-outline mb-2"
           placeholder="Password"
+          autoComplete="new-password"
           type="password"
           value={passwordonce}
           onChange={(e) => setPasswordonce(e.target.value)}
@@ -45,11 +47,12 @@ const CreateAdmin: NextPage = () => {
         <input
           className="border-darkred shadow appearance-none border rounded w-full h-12 py-2 px-3 bg-yellow placeholder-orange text-darkred leading-tight focus:outline-none focus:shadow-outline mb-4"
           placeholder="Re-Type Password"
+          autoComplete="new-password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="bg-darkred text-white-100 hover:bg-grey-800 font-bold w-full h-12 py-2 px-4  rounded focus:outline-none focus:shadow-outline">
+        <button className="bg-darkred text-yellow hover:bg-grey-800 w-full h-12 py-2 px-4  rounded focus:outline-none focus:shadow-outline">
           Create
         </button>
       </form>

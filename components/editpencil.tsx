@@ -11,7 +11,7 @@ const EditPencil: NextPage<IEditPencil> = ({ setter, val }) => {
   return (
     <button
       onClick={() => setter(!val)}
-      className="bg-darkred text-white-100 hover:bg-grey-800 w-24 h-12 py-2 px-4 rounded focus:outline-none flex mx-2 mb-2 focus:shadow-outline justify-center"
+      className="bg-darkred text-yellow hover:bg-grey-800 w-24 h-12 py-2 px-4 rounded focus:outline-none flex mx-2 mb-2 focus:shadow-outline justify-center"
     >
       {val ? (
         <>

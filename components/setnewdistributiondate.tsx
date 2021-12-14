@@ -26,7 +26,7 @@ const SetNewDistributionDate: NextPage = () => {
             handleClick();
           }
         }}
-        className="w-32 mx-auto my-2 h-12 py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-darkred text-white-100 hover:bg-grey-800 text-base"
+        className="w-32 mx-auto my-2 h-12 py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-darkred text-yellow hover:bg-grey-800 text-base"
       >
         New Date
       </button>

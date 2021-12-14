@@ -25,7 +25,7 @@ const ModifyTreasury: NextPage = () => {
         />
       </div>
       <button
-        className="w-16 mx-auto h-12 py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-darkred text-white-100 hover:bg-grey-800 text-base"
+        className="w-16 mx-auto h-12 py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-darkred text-yellow hover:bg-grey-800 text-base"
         onClick={handleClick}
       >
         Add
