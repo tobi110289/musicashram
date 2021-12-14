@@ -46,13 +46,13 @@ const AdminListUser: NextPage<IListUser> = ({
 
   return (
     <tr className={even ? "text-grey-900" : ""}>
-      <td className="text-center" {...nameProps("first")}>
+      <th className="text-center" {...nameProps("first")}>
         {user.firstName}
-      </td>
-      <td className="text-center" {...nameProps("last")}>
+      </th>
+      <th className="text-center" {...nameProps("last")}>
         {user.lastName}
-      </td>
-      <td
+      </th>
+      <th
         className="text-center"
         suppressContentEditableWarning={true}
         contentEditable={editable}
@@ -64,12 +64,12 @@ const AdminListUser: NextPage<IListUser> = ({
         }}
       >
         {user.tokens}
-      </td>
-      <td className="text-center">
+      </th>
+      <th className="text-center">
         {user.tokens && user.tokens > 0 ? share : 0} €
-      </td>
+      </th>
       {editable ? (
-        <td
+        <th
           className="text-center"
           onClick={() => {
             const result = confirm(
@@ -81,7 +81,7 @@ const AdminListUser: NextPage<IListUser> = ({
           }}
         >
           <button>❌</button>
-        </td>
+        </th>
       ) : null}
     </tr>
   );

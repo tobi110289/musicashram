@@ -9,6 +9,8 @@ import {
   Header,
 } from "../components";
 import { useGlobalContext } from "../utility/context";
+import Loader from "react-loader-spinner";
+
 
 const Dashboard: NextPage = () => {
   const { users } = useGlobalContext();
@@ -23,7 +25,9 @@ const Dashboard: NextPage = () => {
       <SetNewDistributionDate />
       <p className="mx-auto mb-4">____________________________</p>
       <CreateUser />
-      {users && users.length && <UserList admin={true} />}
+      {users && users.length ? <UserList admin={true} />: <div className="mx-auto">
+          <Loader type="Rings" color="#661d15" height={100} width={100} />
+        </div>}
     </div>
   );
 };

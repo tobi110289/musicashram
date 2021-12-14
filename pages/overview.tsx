@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { UserList, Treasury, Cashout, TotalTime } from "../components";
 import { useGlobalContext } from "../utility/context";
+import Loader from "react-loader-spinner";
 
 const Overview: NextPage = () => {
   const { users } = useGlobalContext();
@@ -20,12 +21,17 @@ const Overview: NextPage = () => {
       </div>
       <Treasury />
       <Cashout />
+
       <div className="mb-6"></div>
-      {users && users.length > 0 && (
+      {users && users.length > 0 ? (
         <>
           <UserList admin={false} />
           <TotalTime />
         </>
+      ) : (
+        <div className="mx-auto">
+          <Loader type="Rings" color="#661d15" height={100} width={100} />
+        </div>
       )}
     </div>
   );

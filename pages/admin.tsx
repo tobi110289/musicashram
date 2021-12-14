@@ -7,10 +7,10 @@ const Admin: NextPage = () => {
   const { isAuth } = useGlobalContext();
   return (
     <div
-      className="bg-img3 bg-cover bg-no-repeat bg-center min-h-screen w-screen"
+      className="bg-img2 bg-cover bg-no-repeat bg-center min-h-screen w-screen"
     >
       {isAuth ? <Dashboard /> : <Login />}
-      <div className="bg-orange opacity-50 z-0 min-h-screen w-sceen"></div>
+      <div className="bg-orange opacity-60 z-0 min-h-screen w-sceen"></div>
     </div>
   );
 };

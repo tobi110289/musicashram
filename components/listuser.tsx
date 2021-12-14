@@ -10,10 +10,10 @@ interface IListUser {
 const ListUser: NextPage<IListUser> = ({ user, share, even }) => {
   return (
     <tr className={even ? "text-grey-900" : "" + ""}>
-      <td className="text-center">{user.firstName}</td>
-      <td className="text-center">{user.lastName}</td>
-      <td className="text-center">{user.tokens}</td>
-      <td className="text-center">{user.tokens && user.tokens > 0 ? share : 0} €</td>
+      <th className="text-center">{user.firstName}</th>
+      <th className="text-center">{user.lastName}</th>
+      <th className="text-center">{user.tokens}</th>
+      <th className="text-center">{user.tokens && user.tokens > 0 ? share : 0} €</th>
     </tr>
   );
 };
