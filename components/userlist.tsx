@@ -37,10 +37,10 @@ const UserList: NextPage<IUserList> = ({ admin }) => {
       <table className="table-fixed w-screen">
         <thead>
           <tr>
-            <th className="w-1/4 border">FIRST NAME</th>
-            <th className="w-1/4 border">LAST NAME</th>
+            <th className="w-[27%] border">FIRST NAME</th>
+            <th className="w-[27%] border">LAST NAME</th>
             <th className="w-1/5 border">TOKENS</th>
-            <th className="w-1/5 border">SHARE</th>
+            <th className="w-[18%] border">SHARE</th>
             {editable ? <th className="w-1/6 border">DELETE?</th> : null}
           </tr>
         </thead>
