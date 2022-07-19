@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import { UserList, Treasury, Cashout, TotalTime } from "../components";
+import { UserList, Treasury, Cashout, TotalTime, Documentation } from "../components";
 import { useGlobalContext } from "../utility/context";
 import Loader from "react-loader-spinner";
 
@@ -27,6 +27,7 @@ const Overview: NextPage = () => {
         <>
           <UserList admin={false} />
           <TotalTime />
+          <Documentation />
         </>
       ) : (
         <div className="mx-auto">
